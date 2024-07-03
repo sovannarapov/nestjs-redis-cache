@@ -1,14 +1,14 @@
 import { Injectable } from '@nestjs/common';
 import { groupBy } from 'lodash';
 import { HttpClientService } from 'src/http-client/http-client.service';
-import { UtilService } from 'src/util/redis.service';
+import { RedisService } from 'src/util/redis.service';
 import { OrderDto } from './order.dto';
 
 @Injectable()
 export class OrderService {
   constructor(
     private http: HttpClientService,
-    private cache: UtilService,
+    private cache: RedisService,
   ) {}
 
   async getAllOrders(category: string, skip: number, take: number) {
@@ -22,7 +22,7 @@ export class OrderService {
 
     if (cached && cached.length > 0) {
       console.log('cache found');
-      return cached.map((element) => JSON.parse(element));
+      return cached.map((element: string) => JSON.parse(element));
     } else {
       console.log('cache missed');
       const data = await this.http.getAllOrders();
