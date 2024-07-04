@@ -25,15 +25,15 @@ export class OrderService {
       return cached.map((element: string) => JSON.parse(element));
     } else {
       console.log('cache missed');
-      const data = await this.http.getAllOrders();
-      const groupedData = this.groupedData(data);
-      await this.cache.cacheList(key, groupedData, 600);
+      const orders = await this.http.getAllOrders();
+      const groupedOrders = this.groupOrders(orders);
+      await this.cache.cacheList(key, groupedOrders, 600);
       console.log('cached succeed');
-      return groupedData;
+      return groupedOrders;
     }
   }
 
-  private groupedData(orders: OrderDto[]) {
+  private groupOrders(orders: OrderDto[]) {
     const groupedOrders = [].concat(
       [],
       ...orders
