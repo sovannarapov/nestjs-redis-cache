@@ -1,27 +1,19 @@
 # NestJS Redis Cache
 
-## Description
-
 An API that has large data and improved performance by using grouping data and redis cache.
 
-## Installation
+### Run the API in development mode
 
-```bash
-$ yarn install
+```javascript
+yarn or npm install // To install dependencies
 ```
 
-## Running the app
-
-```bash
-# development
-$ yarn run start
-
-# watch mode
-$ yarn run start:dev
+```javascript
+yarn start:dev or npm run start:dev // To start api in dev mode
 ```
 
 ## Documentation
 
-- [nestjs](https://docs.nestjs.com/)
-- [ioredis](https://github.com/redis/ioredis)
-- [nestjs-modules/ioredis](https://github.com/nest-modules/ioredis)
+1. [nestjs](https://docs.nestjs.com/)
+2. [ioredis](https://github.com/redis/ioredis)
+3. [nestjs-modules/ioredis](https://github.com/nest-modules/ioredis)
